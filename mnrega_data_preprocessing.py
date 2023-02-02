@@ -79,15 +79,28 @@ class MNREGADataLoader:
             exit()
         logging.debug('Data Processed at {}'.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
     
-    def save(self, filename=None, index=False):
+    def save(self, data=None, filename=None, index=False):
         'Saving the data in the CSV format'
         try:
-            self.df.to_csv('{}/{}'.format(self.path, filename), index=index)
+            if data is None:
+                data = self.df
+            else:
+                data=data
+            data.to_csv('{}/{}'.format(self.path, filename), index=index)
         except:
             logging.debug("ERROR IN SAVING at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             logging.debug("Ended the Process at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             exit()
         logging.debug("Data saved in CSV at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
+        
+    def budget_by_year_state(self):
+        'State and Year wise Expenditure'
+        yearly_spend = self.df.groupby('year')['total_actual_exp'].sum().to_frame().rename(columns={'total_actual_exp': 'budget_spent'})
+        state_wise_spend = self.df.groupby('state')['total_actual_exp'].sum().to_frame().rename(columns={'total_actual_exp': 'budget_spent'})
+        self.save(data=yearly_spend,filename='yearly_spend.csv',index=True)
+        self.save(data=state_wise_spend,filename='state_wise_spend.csv',index=True)
+        yearly_state_wise_spend = self.df.groupby(['state', 'year'])['total_actual_exp'].sum().to_frame().rename(columns={'total_actual_exp': 'budget_spent'})
+        self.save(data=yearly_state_wise_spend,filename='yearly_state_wise_spend.csv',index=True)
         
 def main():
     'Runs the main function'
@@ -96,6 +109,7 @@ def main():
     loader.download()
     loader.process()
     loader.save(filename='mnrega_data.csv')
+    loader.budget_by_year_state()
     logging.debug("Ended the Process at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
 
 if __name__ == '__main__':
