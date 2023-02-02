@@ -9,7 +9,7 @@ from sys import exit
 from datetime import datetime
 import lxml
 
-logging.basicConfig(level=logging.DEBUG, filename='log.txt', filemode='a',
+logging.basicConfig(level=logging.DEBUG, filename='./log.txt', filemode='a',
         format ='%(asctime)s - %(levelname)s - %(message)s')
 
 class MNREGADataLoader:
@@ -69,8 +69,6 @@ class MNREGADataLoader:
             for c in self.df.columns[2:]: 
                 if c != 'Year':
                     self.df[c]= self.df[c].astype('float')
-            # self.df['Cumulative_Expenditure_Year']= self.df.groupby('Year')['Total Actual Exp'].transform('sum').round(2)
-            # self.df['Cumulative_Expenditure_State'] = self.df.groupby('State')['Total Actual Exp'].transform('sum').round(2)
             self.df["State"] = self.df["State"].apply(lambda x: self.INDIA_ISO_CODES[x])
             self.df.drop(['S No.', 'Actual Balance', 'Unskilled Wage Due', 'Material Due', 'Admin Due', 'Total Due', 
                          'Total Exp including payment due', 'Net Balance'], axis=1,inplace=True)
