@@ -41,7 +41,7 @@ class MNREGADataLoader:
         self.dataset = pd.DataFrame()
     
     def download(self,start_year=2019,end_year=2023):
-        #Add the Year's range here
+        'Download the required date from the web'
         warnings.filterwarnings('ignore')
         
         for yr in range(start_year,end_year):
@@ -64,13 +64,13 @@ class MNREGADataLoader:
         logging.debug('Data Downloaded at {}'.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
         
     def process(self):
-        #Converting the datatypes of numerical column except Year
+        'Process the data to bring it in the required format'
         try:
             for c in self.df.columns[2:]: 
                 if c != 'Year':
                     self.df[c]= self.df[c].astype('float')
-            self.df['Cumulative_Expenditure_Year']= self.df.groupby('Year')['Total Actual Exp'].transform('sum').round(2)
-            self.df['Cumulative_Expenditure_State'] = self.df.groupby('State')['Total Actual Exp'].transform('sum').round(2)
+            # self.df['Cumulative_Expenditure_Year']= self.df.groupby('Year')['Total Actual Exp'].transform('sum').round(2)
+            # self.df['Cumulative_Expenditure_State'] = self.df.groupby('State')['Total Actual Exp'].transform('sum').round(2)
             self.df["State"] = self.df["State"].apply(lambda x: self.INDIA_ISO_CODES[x])
             self.df.drop(['S No.', 'Actual Balance', 'Unskilled Wage Due', 'Material Due', 'Admin Due', 'Total Due', 
                          'Total Exp including payment due', 'Net Balance'], axis=1,inplace=True)
@@ -82,6 +82,7 @@ class MNREGADataLoader:
         logging.debug('Data Processed at {}'.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
     
     def save(self, filename=None, index=False):
+        'Saving the data in the CSV format'
         try:
             self.df.to_csv('{}/{}'.format(self.path, filename), index=index)
         except:
