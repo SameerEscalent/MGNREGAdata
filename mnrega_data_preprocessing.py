@@ -88,6 +88,7 @@ class MNREGADataLoader:
             else:
                 data=data
             data.to_csv('{}/{}'.format(self.path, filename), index=index)
+            logging.debug("Data saved successfully at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
         except:
             logging.debug("ERROR IN SAVING at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             logging.debug("Ended the Process at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
