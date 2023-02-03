@@ -1,0 +1,89 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "d080c2f0",
+   "metadata": {},
+   "source": [
+    "Node: E:Mnrega_StateExpenditure->E0\n",
+    "typeOf: schema:Place\n",
+    "isoCode: C:Mnrega_StateExpenditure->state\n",
+    "\n",
+    "Node: E:Mnrega_StateExpenditure->E1\n",
+    "typeOf: dcs:StatVarObservation\n",
+    "variableMeasured: dcs:SchemeAmount_Mnrega_AvailableFunds\n",
+    "value: C:Mnrega_StateExpenditure->total_availablity\n",
+    "unit: dcs:IndianRupee\n",
+    "observationDate: C:Mnrega_StateExpenditure->year\n",
+    "observationPeriod: \"P1Y\"\n",
+    "observationAbout: E:Mnrega_StateExpenditure->E0\n",
+    "\n",
+    "Node: E:Mnrega_StateExpenditure->E2\n",
+    "typeOf: dcs:StatVarObservation\n",
+    "variableMeasured: dcs:SchemeAmount_Mnrega_UnskilledExpWage\n",
+    "value: C:Mnrega_StateExpenditurea->unskilled_wage_expenditure\n",
+    "unit: dcs:IndianRupee\n",
+    "observationDate: C:Mnrega_StateExpenditure->year\n",
+    "observationPeriod: \"P1Y\"\n",
+    "observationAbout: E:Mnrega_StateExpenditure->E0\n",
+    "\n",
+    "Node: E:Mnrega_StateExpenditure->E3\n",
+    "typeOf: dcs:StatVarObservation\n",
+    "variableMeasured: dcs:SchemeAmount_Mnrega_MaterialExpAmount\n",
+    "value: C:Mnrega_StateExpenditure->material_expenditure\n",
+    "unit: dcs:IndianRupee\n",
+    "observationDate: C:Mnrega_StateExpenditure->year\n",
+    "observationPeriod: \"P1Y\"\n",
+    "observationAbout: E:Mnrega_StateExpenditure->E0\n",
+    "\n",
+    "Node: E:Mnrega_StateExpenditure->E4\n",
+    "typeOf: dcs:StatVarObservation\n",
+    "variableMeasured: dcs:SchemeAmount_Mnrega_AdminExpAmount\n",
+    "value: C:Mnrega_StateExpenditure->admin_expenditure\n",
+    "unit: dcs:IndianRupee\n",
+    "observationDate: C:Mnrega_StateExpenditure->year\n",
+    "observationPeriod: \"P1Y\"\n",
+    "observationAbout: E:Mnrega_StateExpenditure->E0\n",
+    "\n",
+    "Node: E:Mnrega_StateExpenditure->E5\n",
+    "typeOf: dcs:StatVarObservation\n",
+    "variableMeasured: dcs:SchemeAmount_Mnrega_OtherExpAmount\n",
+    "value: C:Mnrega_StateExpenditure->other_expenditure\n",
+    "unit: dcs:IndianRupee\n",
+    "observationDate: C:Mnrega_StateExpenditure->year\n",
+    "observationPeriod: \"P1Y\"\n",
+    "observationAbout: E:Mnrega_StateExpenditure->E0\n",
+    "\n",
+    "Node: E:Mnrega_StateExpenditure->E6\n",
+    "typeOf: dcs:StatVarObservation\n",
+    "variableMeasured: dcs:SchemeAmount_Mnrega_ActualExpWage\n",
+    "value: C:Mnrega_StateExpenditure->total_actual_exp\n",
+    "unit: dcs:IndianRupee\n",
+    "observationDate: C:Mnrega_StateExpenditure->year\n",
+    "observationPeriod: \"P1Y\"\n",
+    "observationAbout: E:Mnrega_StateExpenditure->E0 "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
