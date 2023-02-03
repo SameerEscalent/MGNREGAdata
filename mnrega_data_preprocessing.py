@@ -73,6 +73,7 @@ class MNREGADataLoader:
             self.df.drop(['S No.', 'Actual Balance', 'Unskilled Wage Due', 'Material Due', 'Admin Due', 'Total Due', 
                          'Total Exp including payment due', 'Net Balance'], axis=1,inplace=True)
             self.df.columns = [col.lower().replace(" ", "_") for col in self.df.columns]
+            return self.df
         except:
             logging.debug('ERROR IN PROCESSING at {}'.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             logging.debug("Ended the Process at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
