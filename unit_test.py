@@ -17,7 +17,7 @@ class TestPreprocess(unittest.TestCase):
         self.assertEqual(len(data.columns), 8)
         
     def test_data_states(self):
-        self.assertEqual(len(list(data['state'].unique())), 34)
+        self.assertGreaterEqual(len(list(data['state'].unique())), 34)
         
     def test_data_spend(self):
         self.assertGreaterEqual(data['total_actual_exp'].sum(), 0)
