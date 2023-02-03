@@ -41,9 +41,7 @@ class MNREGADataLoader:
         self.dataset = pd.DataFrame()
     
     def download(self,start_year=2019,end_year=2023):
-        'Download the required date from the web'
-        warnings.filterwarnings('ignore')
-        
+        'Download the required data from the web'
         for yr in range(start_year,end_year):
             a=0
             try:
@@ -66,19 +64,20 @@ class MNREGADataLoader:
     def process(self):
         'Process the data to bring it in the required format'
         try:
-            for c in self.df.columns[2:]: 
-                if c != 'Year':
-                    self.df[c]= self.df[c].astype('float')
-            self.df["State"] = self.df["State"].apply(lambda x: self.INDIA_ISO_CODES[x])
             self.df.drop(['S No.', 'Actual Balance', 'Unskilled Wage Due', 'Material Due', 'Admin Due', 'Total Due', 
                          'Total Exp including payment due', 'Net Balance'], axis=1,inplace=True)
             self.df.columns = [col.lower().replace(" ", "_") for col in self.df.columns]
+            for c in self.df.columns: 
+                if (c != 'year') & (c != 'state'):
+                    self.df[c]= self.df[c].astype('float')
+                    self.df[c]= self.df[c]*100000
+            self.df["state"] = self.df["state"].apply(lambda x: self.INDIA_ISO_CODES[x])
+            logging.debug('Data Processed at {}'.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             return self.df
         except:
             logging.debug('ERROR IN PROCESSING at {}'.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             logging.debug("Ended the Process at {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
             exit()
-        logging.debug('Data Processed at {}'.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
     
     def save(self, data=None, filename=None, index=False):
         'Saving the data in the CSV format'
@@ -106,6 +105,7 @@ class MNREGADataLoader:
         
 def main():
     'Runs the main function'
+    warnings.filterwarnings('ignore')
     logging.debug('Started the Process at {}'.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
     loader = MNREGADataLoader()
     loader.download()
