@@ -3,16 +3,11 @@
 Created on Fri Feb  3 13:12:42 2023
 
 """
-# import filecmp
-# import os
-# import json
-# import tempfile
 import unittest
 from mnrega_data_preprocessing import MNREGADataLoader
 
 class TestPreprocess(unittest.TestCase):
     
-    # def __init__(self):
     global data
     loader = MNREGADataLoader()
     loader.download()
