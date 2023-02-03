@@ -1,0 +1,67 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "2daca029",
+   "metadata": {},
+   "source": [
+    "Node: dcid:SchemeAmount_Mnrega_AvailableFunds\n",
+    "typeOf: dcs:StatisticalVariable\n",
+    "populationType: dcs:Funds\n",
+    "measuredProperty: dcs:amount\n",
+    "statType: dcs:measuredValue\n",
+    "\n",
+    "Node: dcid:SchemeAmount_Mnrega_UnskilledExpWage\n",
+    "typeOf: dcs:StatisticalVariable\n",
+    "populationType: dcs:Funds\n",
+    "measuredProperty: dcs:amount\n",
+    "statType: dcs:measuredValue\n",
+    "\n",
+    "Node: dcid:SchemeAmount_Mnrega_MaterialExpAmount\n",
+    "typeOf: dcs:StatisticalVariable\n",
+    "populationType: dcs:Funds\n",
+    "measuredProperty: dcs:amount\n",
+    "statType: dcs:measuredValue\n",
+    "\n",
+    "Node: dcid:SchemeAmount_Mnrega_AdminExpAmount\n",
+    "typeOf: dcs:StatisticalVariable\n",
+    "populationType: dcs:Funds\n",
+    "measuredProperty: dcs:amount\n",
+    "statType: dcs:measuredValue\n",
+    "\n",
+    "Node: dcid:SchemeAmount_Mnrega_OtherExpAmount\n",
+    "typeOf: dcs:StatisticalVariable\n",
+    "populationType: dcs:Funds\n",
+    "measuredProperty: dcs:amount\n",
+    "statType: dcs:measuredValue\n",
+    "\n",
+    "Node: dcid:SchemeAmount_Mnrega_ActualExpWage\n",
+    "typeOf: dcs:StatisticalVariable\n",
+    "populationType: dcs:Funds\n",
+    "measuredProperty: dcs:amount              \n",
+    "statType: dcs:measuredValue"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
